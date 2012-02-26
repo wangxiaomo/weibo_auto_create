@@ -72,6 +72,8 @@ class OAuthHandler(AuthHandler):
                 self._consumer, http_url=url, callback=self.callback
             )
             request.sign_request(self._sigmethod, self._consumer, None)
+            print "DEBUG: auth_header:\n"
+            print request.to_header()
             resp = urlopen(Request(url, headers=request.to_header()))
             return oauth.OAuthToken.from_string(resp.read())
         except Exception, e:

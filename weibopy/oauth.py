@@ -611,7 +611,7 @@ class OAuthSignatureMethod_HMAC_SHA1(OAuthSignatureMethod):
             escape(oauth_request.get_normalized_http_url()),
             escape(oauth_request.get_normalized_parameters()),
         )
-
+        print "DEBUG SIG: ",escape(oauth_request.get_normalized_http_url());
         key = '%s&' % escape(consumer.secret)
         if token:
             key += escape(token.secret)
